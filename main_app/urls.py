@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import Home, CatList, CatDetail, FeedingListCreate, FeedingDetail # additional imports # additional imports
+# additional imports # additional imports
+from .views import Home, CatList, CatDetail, FeedingListCreate, FeedingDetail, ToyList, ToyDetail
 
 urlpatterns = [
     # home route lives here
@@ -9,4 +10,6 @@ urlpatterns = [
     path('cats/<int:id>/', CatDetail.as_view(), name='cat-detail'),
     path('cats/<int:cat_id>/feedings/', FeedingListCreate.as_view(), name='feeding-list-create'),
 	path('cats/<int:cat_id>/feedings/<int:id>/', FeedingDetail.as_view(), name='feeding-detail'),
+    path('toys/', ToyList.as_view(), name='toy-list'),
+    path('toys/<int:id>/', ToyDetail.as_view(), name='toy-detail'),
 ]
