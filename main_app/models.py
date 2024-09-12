@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 
+from django.contrib.auth.models import User
+
 # A tuple of 2-tuples
 MEALS = (
     ('B', 'Breakfast'),
@@ -23,6 +25,8 @@ class Cat(models.Model):
     age = models.IntegerField()
     # Add the M:M relationship
     toys = models.ManyToManyField(Toy)
+    # Add the foreign key linking to a user instance
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     # new code below and you can create def's to see them print out in the python shell
     def __str__(self):
